@@ -48,5 +48,6 @@ public class BeforeAndAfter {
                 e.printStackTrace();
             }
         }
+        BaseDriver.quiteDriver();
     }
 }

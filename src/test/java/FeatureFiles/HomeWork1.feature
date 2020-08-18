@@ -1,6 +1,6 @@
 Feature: Checking number of orders and deleting the orders function
 
-  Scenario: Login to page with credentials
+ Background: Login to page with credentials
     Given Navigate to the given web page "http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2fTestComplete12%2fWebOrders%2fDefault.aspx"
     Then Enter user name: "Tester" and Password: "test"
     And Click on the login button
