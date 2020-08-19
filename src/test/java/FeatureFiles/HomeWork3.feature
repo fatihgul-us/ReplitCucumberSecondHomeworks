@@ -5,15 +5,18 @@ Feature: Checking all negative scenarios of order page
     Then Enter user name: "Tester" and Password: "test"
     And Click on the login button
 
+
   Scenario Outline:Check if the Quantity entered zero, you get fault message
     Given Click on Order menu button
     Then Select type of product "<Type of Product>"
     And Enter "<Quantity>"
     Then press Calculate button
+    Then Fill Address Information "<Customer name>" "<Street>" "<City>" "<State>" "<Zip>"
+    Then Press process button
     And Verify if Quantity did not entered, you should get "Quantity must be greater than zero." message
     Examples:
-      | Type of Product | Quantity |
-      | ScreenSaver     | 0        |
+      | Type of Product | Quantity | Customer name | Street | City    | State | Zip   |
+      | ScreenSaver     |          | Kemal         | Sable  | Suwanee | GA    | 30009 |
 
   Scenario Outline:Check if the Customer Name did not entered, you get fault message
     Given Click on Order menu button
@@ -72,7 +75,7 @@ Feature: Checking all negative scenarios of order page
     Then Select type of "<Card>"
     And Enter the "<Card Nr>" "<Expire date (mm/yy)>"
     Then Press process button
-   And Verify if Card did not entered, you should get "Select a card type." message
+    And Verify if Card did not entered, you should get "Select a card type." message
     Examples:
       | Type of Product | Quantity | Customer name | Street | City    | State | Zip   | Card | Card Nr      | Expire date (mm/yy) |
       | ScreenSaver     | 45       | Fatih Gul     | Sable  | Suwanee | GA    | 30009 |      | 123456789012 | 03/23               |
