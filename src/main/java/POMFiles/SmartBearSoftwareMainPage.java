@@ -57,7 +57,7 @@ public class SmartBearSoftwareMainPage extends BaseClass {
         clickFunction(myElement);
     }
 
-    public void findElementAndSendKeysFunction(String elementName, String Keys) {
+    public void findElementAndSendKeysFunction(String elementName, String Keys) throws InterruptedException {
         switch (elementName) {
             case "userName":
                 myElement = userName;

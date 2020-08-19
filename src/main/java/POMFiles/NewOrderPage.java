@@ -90,6 +90,23 @@ public class NewOrderPage extends BaseClass {
     private WebElement getCardNumber;
     @FindBy(xpath = "//table[@class='SampleTable']/tbody/tr/td[12]")
     private WebElement getExpDate;
+    // For negative case Error messages
+    @FindBy(css = "#ctl00_MainContent_fmwOrder_RegularExpressionValidator1")
+    private WebElement quantityError;
+    @FindBy(css = "#ctl00_MainContent_fmwOrder_RequiredFieldValidator2")
+    private WebElement customerNameError;
+    @FindBy(css = "#ctl00_MainContent_fmwOrder_RequiredFieldValidator3")
+    private WebElement streetNameError;
+    @FindBy(css = "#ctl00_MainContent_fmwOrder_RequiredFieldValidator4")
+    private WebElement cityNameError;
+    @FindBy(css = "#ctl00_MainContent_fmwOrder_RequiredFieldValidator5")
+    private WebElement zipError;
+    @FindBy(css = "#ctl00_MainContent_fmwOrder_CustomValidator1")
+    private WebElement cardTypeError;
+    @FindBy(css = "#ctl00_MainContent_fmwOrder_RequiredFieldValidator6")
+    private WebElement cardNumberError;
+    @FindBy(css = "#ctl00_MainContent_fmwOrder_RequiredFieldValidator7")
+    private WebElement expDateError;
 
     public String findElementAndGetText(String elementName) {
         switch (elementName) {
@@ -120,6 +137,31 @@ public class NewOrderPage extends BaseClass {
             case "getExpDate":
                 myElement = getExpDate;
                 break;
+                ////////////////////////////////////
+            case "quantityError":
+                myElement = quantityError;
+                break;
+            case "customerNameError":
+                myElement = customerNameError;
+                break;
+            case "streetNameError":
+                myElement = streetNameError;
+                break;
+            case "cityNameError":
+                myElement = cityNameError;
+                break;
+            case "zipError":
+                myElement = zipError;
+                break;
+            case "cardTypeError":
+                myElement = cardTypeError;
+                break;
+            case "cardNumberError":
+                myElement = cardNumberError;
+                break;
+            case "expDateError":
+                myElement = expDateError;
+                break;
           }
         return myElement.getText();
     }
@@ -149,7 +191,7 @@ public class NewOrderPage extends BaseClass {
         clickFunction(myElement);
     }
 
-    public void findElementAndSendKeysFunction(String elementName, String Keys) {
+    public void findElementAndSendKeysFunction(String elementName, String Keys) throws InterruptedException {
         switch (elementName) {
             case "quantity":
                 myElement = quantity;
@@ -192,10 +234,7 @@ public class NewOrderPage extends BaseClass {
     public void findElementAndSelect(WebElement products, String productName) {
         Select select = new Select(products);
         switch (productName) {
-            case "MyMoney":
-                waitUntilVisible(products);
-                select.selectByIndex(0);
-                break;
+
             case "FamilyAlbum":
                 waitUntilVisible(products);
                 select.selectByIndex(1);
@@ -203,6 +242,10 @@ public class NewOrderPage extends BaseClass {
             case "ScreenSaver":
                 waitUntilVisible(products);
                 select.selectByIndex(2);
+                break;
+            case "MyMoney":
+                waitUntilVisible(products);
+                select.selectByIndex(0);
                 break;
         }
     }

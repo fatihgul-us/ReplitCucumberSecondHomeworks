@@ -25,17 +25,18 @@ public class GiveNewOrderStep {
     }
 
     @And("^Enter \"([^\"]*)\"$")
-    public void enter(String quantity) {
+    public void enter(String quantity) throws InterruptedException {
         orderPage.findElementAndSendKeysFunction("quantity", quantity);
     }
 
     @Then("^press Calculate button$")
-    public void press_Calculate_button() {
+    public void press_Calculate_button() throws InterruptedException {
         orderPage.findElementAndClickFunction("calculateButton");
+        Thread.sleep(10);
     }
 
     @Then("^Fill Address Information \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-    public void fill_Address_Information(String name, String street, String city, String state, String zip) {
+    public void fill_Address_Information(String name, String street, String city, String state, String zip) throws InterruptedException {
         orderPage.findElementAndSendKeysFunction("customerName", name);
         orderPage.findElementAndSendKeysFunction("streetName", street);
         orderPage.findElementAndSendKeysFunction("cityName", city);
@@ -54,7 +55,7 @@ public class GiveNewOrderStep {
     }
 
     @Then("^Enter the \"([^\"]*)\" \"([^\"]*)\"$")
-    public void enter_the(String cardNumber, String date) {
+    public void enter_the(String cardNumber, String date) throws InterruptedException {
         orderPage.findElementAndSendKeysFunction("cardNumber", cardNumber);
         orderPage.findElementAndSendKeysFunction("expDate", date);
     }
@@ -102,5 +103,7 @@ public class GiveNewOrderStep {
         Assert.assertEquals(expireDate,orderPage.findElementAndGetText("getExpDate"));
 
     }
+
+
 
 }

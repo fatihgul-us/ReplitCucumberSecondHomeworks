@@ -24,4 +24,4 @@ Feature: Checking functionality of order page
       | MyMoney         | 5        | Dogan         | Duvar  | Duluth     | GA    | 30024 | Visa             | 12345689012 | 03/23               |
 
 
-#Verify items count are increased in the view all orders page
+

@@ -2,6 +2,7 @@ package POMFiles;
 
 
 import Utils.BaseDriver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,9 +24,10 @@ public class BaseClass {
         element.click();
     }
 
-    public void sendKeysFunction(WebElement element, String value) {
+    public void sendKeysFunction(WebElement element, String value)  {
         waitUntilVisible(element);
         element.clear();
+        element.sendKeys(Keys.BACK_SPACE);
         element.sendKeys(value);
     }
 

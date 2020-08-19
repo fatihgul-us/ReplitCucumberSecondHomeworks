@@ -24,7 +24,7 @@ public class CheckOrderStep {
     }
 
     @Then("^Enter user name: \"([^\"]*)\" and Password: \"([^\"]*)\"$")
-    public void enter_user_name_and_Password(String userName, String passWord) {
+    public void enter_user_name_and_Password(String userName, String passWord) throws InterruptedException {
         page.findElementAndSendKeysFunction("userName", userName);
         page.findElementAndSendKeysFunction("passWord", passWord);
     }
